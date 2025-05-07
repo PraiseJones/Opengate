@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /links/{linkId} {
+      allow read: if true;
+      allow create: if 
+         request.resource.data.url is string &&
+         request.resource.data.title is string &&
+         request.resource.data.tags is list &&
+         request.resource.data.created == request.time &&
+         request.resource.data.reports == 0;
+      allow update: if request.resource.data.keys().hasOnly(['reports','imageUrl']) &&
+                    (request.resource.data.reports is int ||
+                     request.resource.data.imageUrl is string);
+    }
+  }
+}

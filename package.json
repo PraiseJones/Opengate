@@ -1,0 +1,16 @@
+{
+  "name": "opengate",
+  "version": "1.0.0",
+  "scripts": {
+    "build:css": "tailwindcss -i src/css/style.css -o public/css/styles.css --minify",
+    "watch:css": "tailwindcss -i src/css/style.css -o public/css/styles.css --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "dependencies": {
+    "firebase": "^9.0.0"
+  }
+}
